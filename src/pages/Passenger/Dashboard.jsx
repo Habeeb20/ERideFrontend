@@ -26,6 +26,7 @@ import im1 from "../../assets/Rectangle 90 (1).png";
 import im2 from "../../assets/Rectangle 90 (2).png";
 import im3 from "../../assets/Rectangle 90.png";
 import axios from "axios";
+import TripForm from "./TripForm";
 
 const Dashboard = () => {
   const [data, setData] = useState(null);
@@ -43,6 +44,10 @@ const Dashboard = () => {
   const [editedProfile, setEditedProfile] = useState({}); // Store editable profile data
   const mapRef = useRef();
   const navigate = useNavigate();
+
+  const handleLogout=(() => {
+    navigate("/plogin")
+  })
 
   useEffect(() => {
     const fetchMyProfile = async () => {
@@ -248,8 +253,16 @@ const Dashboard = () => {
                 )}
               </div>
               <div className="flex items-center space-x-4">
+              <button 
+              onClick={handleLogout}
+              className="font-semibold"
+              >
+
+                Logout
+              </button>
+
                 <FaBell size={20} className="cursor-pointer hover:text-gray-200" />
-                <img src="https://via.placeholder.com/40?text=Profile" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
+                <img src= "https://i.pravatar.cc/30?img" alt="Profile" className="w-10 h-10 rounded-full border-2 border-white" />
               </div>
             </header>
 
@@ -354,7 +367,8 @@ const Dashboard = () => {
               {activeTab === "bookRide" && (
                 <div className="bg-white bg-opacity-90 p-6 rounded-lg shadow-lg max-w-lg mx-auto">
                   <h3 className="text-xl font-semibold mb-4">Want to book a ride</h3>
-                  <p className="text-gray-600">No ride history available yet.</p>
+                  <TripForm />
+                  {/* <p className="text-gray-600">No ride history available yet.</p> */}
                 </div>
               )}
 
