@@ -9,6 +9,8 @@ module.exports = {
     colors: {
         'e-ride-purple': '#9333EA',
         'e-ride-green': '#10B981',
+        customPink: "#BE24AA",
+        activeColor:"#9442FE"
       },
     },
   },

@@ -49,6 +49,10 @@ const Dashboard = () => {
     navigate("/plogin")
   })
 
+  const handleFaceAuth =(() => {
+    navigate("/face-auth")
+  })
+
   useEffect(() => {
     const fetchMyProfile = async () => {
       const token = localStorage.getItem("token");
@@ -182,7 +186,7 @@ const Dashboard = () => {
       <div className="relative w-full h-screen flex overflow-hidden">
         {/* Sidebar */}
         <div
-          className={`fixed inset-y-0 left-0 z-20 w-56 bg-gradient-to-b from-[#8a46c1] to-[#a60691] text-white transform transition-transform duration-300 ease-in-out ${
+          className={`fixed inset-y-0 left-0 z-20 w-56 bg-customPink text-white transform transition-transform duration-300 ease-in-out ${
             sidebarOpen ? "translate-x-0" : "-translate-x-full"
           } md:translate-x-0 md:static md:w-1/6`}
         >
@@ -197,8 +201,8 @@ const Dashboard = () => {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(item.id)}
-                className={`w-full flex items-center p-4 hover:bg-purple-600 transition-colors duration-200 ${
-                  activeTab === item.id ? "bg-purple-700 shadow-inner" : ""
+                className={`w-full flex items-center p-4 hover:bg-activeColor transition-colors duration-200 ${
+                  activeTab === item.id ? "bg-activeColor shadow-inner" : ""
                 }`}
               >
                 <item.icon size={20} className="mr-3" />
@@ -210,7 +214,7 @@ const Dashboard = () => {
 
         {/* Toggle Button for Mobile */}
         <button
-          className="md:hidden fixed top-4 left-4 z-30 p-2 bg-e-ride-purple text-white rounded-full shadow-md"
+          className="md:hidden fixed top-4 left-4 z-30 p-2 bg-customPink text-white rounded-full shadow-md"
           onClick={() => setSidebarOpen(!sidebarOpen)}
         >
           <FaBars size={20} />
@@ -244,7 +248,7 @@ const Dashboard = () => {
 
           <div className="absolute inset-0 flex flex-col">
             {/* Header */}
-            <header className="bg-gradient-to-b from-[#8a46c1] to-[#a60691] text-white p-4 flex items-center justify-between shadow-md">
+            <header className="bg-customPink text-white p-4 flex items-center justify-between shadow-md">
               <div>
                 {profile ? (
                   <h2 className="text-xl font-bold">Welcome, {profile.userId.firstName} {profile.userId.lastName}!</h2>
@@ -253,6 +257,10 @@ const Dashboard = () => {
                 )}
               </div>
               <div className="flex items-center space-x-4">
+              <button 
+              onClick={handleFaceAuth}>
+                face-Auth
+              </button>
               <button 
               onClick={handleLogout}
               className="font-semibold"

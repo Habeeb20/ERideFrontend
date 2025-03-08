@@ -3,6 +3,7 @@ import { FaFacebookF, FaGoogle, FaTwitter, FaUserCheck } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import axios from "axios";
+import Navbar from "../../component/Navbar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -66,7 +67,9 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white px-4">
+    <>
+    <Navbar />
+       <div className="min-h-screen flex items-center justify-center bg-white px-4">
       <div className="w-full max-w-md p-8 bg-white shadow-lg rounded-lg">
         <div className="flex flex-col items-center mb-6">
           <FaUserCheck size={64} className="text-e-ride-purple mb-2" />
@@ -109,7 +112,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-gradient-to-r from-purple-500 to-e-ride-purple text-white font-semibold rounded-full hover:from-purple-600 hover:to-e-ride-purple focus:outline-none focus:ring-2 focus:ring-e-ride-purple transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 bg-customPink  text-white font-semibold rounded-full hover:from-purple-600 hover:to-e-ride-purple focus:outline-none focus:ring-2 focus:ring-e-ride-purple transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Signing In..." : "SIGN IN"}
           </button>
@@ -147,6 +150,9 @@ const Login = () => {
         </p>
       </div>
     </div>
+
+    </>
+ 
   );
 };
 

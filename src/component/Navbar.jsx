@@ -20,9 +20,10 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-gradient-to-b from-[#8a46c1] to-[#a60691] text-white">
+    <div className="fixed top-0 left-0 w-full z-50 text-white" style={{ backgroundColor: "#BE24AA" }}>
+
       {/* Mobile Toggle Header */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-purple-600 text-white">
+      <div className="md:hidden flex items-center justify-between p-4 bg-customPink text-white">
         <span className="text-lg font-semibold">E_Ride</span>
         <button
           onClick={() => setSidebarOpen(!sidebarOpen)}

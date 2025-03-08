@@ -10,6 +10,7 @@ import Login from "./pages/Auth/Login";
 import EmailVerify from "./pages/Auth/verifyEmail";
 import { Toaster } from "sonner";
 import ProfileForm from "./pages/Auth/ProfileForm";
+import FaceAuth from "./pages/Auth/FaceAuth";
 
 // Custom PrivateRoute to check token in localStorage
 const PrivateRoute = ({ children }) => {
@@ -46,6 +47,7 @@ const App = () => {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
+        <Route path="/face-auth" element={<FaceAuth />} />
         <Route path="/onboarding1" element={<OnboardingScreen1 />} />
         <Route path="/onboarding2" element={<OnboardingScreen2 />} />
         <Route path="/onboarding3" element={<OnboardingScreen3 />} />
